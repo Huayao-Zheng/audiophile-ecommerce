@@ -7,10 +7,6 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 90,
-      },
     },
     {
       name: 'name',
@@ -18,27 +14,45 @@ export default {
       type: 'string',
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'array',
-      of: [{ type: 'image' }],
-      options: {
-        hotspot: true,
-      },
-    },
-    {
       name: 'category',
       title: 'Category',
       type: 'string',
     },
     {
+      name: 'image',
+      title: 'Image',
+      type: 'object',
+      fields: [
+        {
+          name: 'desktop',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
+        { name: 'tablet', type: 'image' },
+        { name: 'mobile', type: 'image' },
+      ],
+    },
+    {
       name: 'categoryImage',
       title: 'CategoryImage',
-      type: 'array',
-      of: [{ type: 'image' }],
-      options: {
-        hotspot: true,
-      },
+      type: 'object',
+      fields: [
+        { name: 'desktop', type: 'image' },
+        { name: 'tablet', type: 'image' },
+        { name: 'mobile', type: 'image' },
+      ],
+    },
+    {
+      name: 'gallery',
+      title: 'Gallery',
+      type: 'object',
+      fields: [
+        { name: 'first', type: 'image' },
+        { name: 'second', type: 'image' },
+        { name: 'third', type: 'image' },
+      ],
     },
     {
       name: 'new',
@@ -70,16 +84,6 @@ export default {
       ],
     },
     {
-      name: 'gallery',
-      title: 'Gallery',
-      type: 'object',
-      fields: [
-        { name: 'first', type: 'image' },
-        { name: 'second', type: 'image' },
-        { name: 'third', type: 'image' },
-      ],
-    },
-    {
       name: 'others',
       title: 'Others',
       type: 'array',
@@ -91,11 +95,12 @@ export default {
             { name: 'name', type: 'string' },
             {
               name: 'image',
-              type: 'array',
-              of: [{ name: 'desktop', type: 'image' }],
-              options: {
-                hotspot: true,
-              },
+              type: 'object',
+              fields: [
+                { name: 'desktop', type: 'image' },
+                { name: 'tablet', type: 'image' },
+                { name: 'mobile', type: 'image' },
+              ],
             },
           ],
         },
