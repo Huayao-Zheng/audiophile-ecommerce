@@ -7,7 +7,7 @@ import { AiFillFacebook, AiOutlineTwitter, AiOutlineInstagram } from 'react-icon
 const Footer = () => {
   return (
     <div className="bg-[#101010]">
-      <div className="relative grid place-items-center gap-y-12 py-12 text-white md:grid-cols-2 md:place-items-start md:gap-y-8 md:px-10 md:pt-14 lg:mx-auto lg:max-w-[calc(1440px-5rem)]">
+      <div className="Container relative grid place-items-center gap-y-12 py-12 text-white md:grid-cols-2 md:place-items-start md:gap-y-8 md:pt-14">
         {/* Orange Line Pattern */}
         <span className="absolute top-0 left-1/2 h-1 w-[101px] -translate-x-1/2 bg-[#D87D4A] md:left-10 md:translate-x-0" />
 
@@ -22,6 +22,7 @@ const Footer = () => {
           </svg>
         </Link>
 
+        {/* Footer Links */}
         <div className="md:col-span-2 lg:col-[2/3] lg:justify-self-end">
           <NavLinks />
         </div>
@@ -36,6 +37,7 @@ const Footer = () => {
           Copyright 2021. All Rights Reserved
         </p>
 
+        {/* Social Links */}
         <div className="flex gap-4 md:self-end md:justify-self-end lg:col-[2/3] lg:row-[2/3]">
           <AiFillFacebook className="navLink text-2xl" />
           <AiOutlineTwitter className="navLink text-2xl" />

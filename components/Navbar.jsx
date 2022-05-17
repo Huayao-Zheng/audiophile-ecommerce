@@ -5,7 +5,7 @@ import NavLinks from './NavLinks';
 const Navbar = () => {
   return (
     <nav className="bg-[#0E0E0E] text-white">
-      <div className="mx-auto flex max-w-[1110px] items-center justify-between px-6 py-8 md:justify-start md:gap-x-10 md:px-10">
+      <div className="Container flex items-center justify-between py-8 md:justify-start md:gap-x-10">
         {/* hamburger */}
         <svg className="cursor-pointer lg:hidden" width="16" height="15" xmlns="http://www.w3.org/2000/svg">
           <g fill="#FFF" fillRule="evenodd">

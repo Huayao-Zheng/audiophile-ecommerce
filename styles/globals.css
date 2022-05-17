@@ -11,6 +11,10 @@
 }
 
 @layer components {
+  .Container {
+    @apply mx-auto max-w-[calc(1110px+5rem)] px-6 md:px-10;
+  }
+
   .navLink {
     @apply flex cursor-pointer text-[13px] leading-[25px] tracking-[2px] hover:text-[#D87D4A];
   }

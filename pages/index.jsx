@@ -1,6 +1,6 @@
 import React from 'react';
 import { client } from '../lib/client';
-import { Product, Footer, Hero } from '../components';
+import { Product, Hero, BestGear } from '../components';
 
 const Home = ({ products, bannerData }) => {
   console.log(products);
@@ -23,6 +23,7 @@ const Home = ({ products, bannerData }) => {
     <div className="">
       <Hero></Hero>
       <Product></Product>
+      <BestGear />
     </div>
   );
 };
