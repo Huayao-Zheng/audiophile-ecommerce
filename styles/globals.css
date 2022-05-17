@@ -12,6 +12,6 @@
 
 @layer components {
   .navLink {
-    @apply flex hover:text-[#D87D4A];
+    @apply flex cursor-pointer text-[13px] leading-[25px] tracking-[2px] hover:text-[#D87D4A];
   }
 }
