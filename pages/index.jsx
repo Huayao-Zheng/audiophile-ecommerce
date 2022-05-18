@@ -1,34 +1,25 @@
 import React from 'react';
 import { client } from '../lib/client';
-import { Product, Hero, BestGear } from '../components';
+import { Product, Hero, BestGear, Category } from '../components';
 
 const Home = ({ products, bannerData }) => {
   console.log(products);
+
   return (
-    // <div>
-    //   <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-    //   <div className="products-heading">
-    //     <h2>Best Seller Products</h2>
-    //     <p>speaker There are many variations passages</p>
-    //   </div>
-
-    //   <div className="products-container">
-    //     {products?.map((product) => (
-    //       <Product key={product._id} product={product} />
-    //     ))}
-    //   </div>
-
-    //   <FooterBanner footerBanner={bannerData && bannerData[0]} />
-    // </div>
     <div className="">
-      <Hero></Hero>
-      <Product></Product>
+      <Hero />
+      <Category />
+      <div className="products-container">
+        {products?.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
+      </div>
       <BestGear />
     </div>
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const query = '*[_type == "product"]';
   const products = await client.fetch(query);
 

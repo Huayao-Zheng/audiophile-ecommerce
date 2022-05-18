@@ -1,6 +1,8 @@
 export { default as Layout } from './Layout';
 export { default as Navbar } from './Navbar';
 export { default as Hero } from './Hero';
+export { default as Category } from './Category';
+export { default as BasicMenu } from './BasicMenu';
 export { default as Product } from './Product';
 export { default as BestGear } from './BestGear';
 export { default as Footer } from './Footer';
