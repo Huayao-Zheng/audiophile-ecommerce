@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import NavLinks from './NavLinks';
+import Menu from '@mui/material/Menu';
+import Category from './Category';
 
 const Navbar = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleClick = (event) => {
+    open ? handleClose() : setAnchorEl(event.currentTarget);
+  };
+
   return (
-    <nav className="bg-[#0E0E0E] text-white">
+    <nav className="relative bg-[#0E0E0E] text-white">
       <div className="Container flex items-center justify-between py-8 md:justify-start md:gap-x-10">
         {/* hamburger */}
-        <svg className="cursor-pointer lg:hidden" width="16" height="15" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          onClick={handleClick}
+          className="cursor-pointer lg:hidden"
+          width="16"
+          height="15"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <g fill="#FFF" fillRule="evenodd">
             <path d="M0 0h16v3H0zM0 6h16v3H0zM0 12h16v3H0z" />
           </g>
@@ -45,8 +64,35 @@ const Navbar = () => {
 
       {/* divide line */}
       <div className="h-[1px] max-w-[1110px] bg-white/10 md:mx-10 lg:mx-auto" />
+
+      {/* Menu */}
+      {anchorEl && (
+        <>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            className="menuOverRide lg:hidden"
+          >
+            <Category handleClose={handleClose} />
+          </Menu>
+          {/* overLay */}
+          <div className="absolute top-[89.98px] left-0 z-10 h-screen w-full bg-black/40 lg:hidden" />
+        </>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
+
+// open && (
+//   <>
+//     <div className="absolute top-[89.98px] left-0 right-0 z-20 rounded-b-lg bg-white">
+//       <BasicMenu />
+//     </div>
+//     {/* overLay */}
+//     <div className="absolute  top-[89.98px] left-0 z-10 h-screen w-screen bg-black/40" />
+//   </>
+// );

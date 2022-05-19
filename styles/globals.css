@@ -18,4 +18,13 @@
   .navLink {
     @apply flex cursor-pointer text-[13px] leading-[25px] tracking-[2px] hover:text-[#D87D4A];
   }
+
+  /* Mui menu override */
+  .menuOverRide,
+  .menuOverRide .MuiBackdrop-root {
+    @apply !top-[89.98px];
+  }
+  .menuOverRide .MuiPaper-root {
+    @apply !top-0 !left-0 !right-0 !min-w-full !rounded-none !rounded-b-lg !py-8 md:!pb-14;
+  }
 }
