@@ -5,7 +5,7 @@ import Menu from '@mui/material/Menu';
 import Category from './Category';
 
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClose = () => {
@@ -86,13 +86,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// open && (
-//   <>
-//     <div className="absolute top-[89.98px] left-0 right-0 z-20 rounded-b-lg bg-white">
-//       <BasicMenu />
-//     </div>
-//     {/* overLay */}
-//     <div className="absolute  top-[89.98px] left-0 z-10 h-screen w-screen bg-black/40" />
-//   </>
-// );
