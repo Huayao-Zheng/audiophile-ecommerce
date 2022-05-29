@@ -9,7 +9,9 @@ const Home = ({ products }) => {
       <div className="mt-10 mb-28 md:my-24 lg:mt-28 lg:mb-40">
         <Category />
       </div>
+
       <ProductsGrid />
+
       <div className="my-28 md:my-24 lg:mt-48 lg:mb-52">
         <BestGear />
       </div>

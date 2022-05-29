@@ -49,15 +49,40 @@ export default {
       title: 'Gallery',
       type: 'object',
       fields: [
-        { name: 'first', type: 'image' },
-        { name: 'second', type: 'image' },
-        { name: 'third', type: 'image' },
+        {
+          name: 'first',
+          type: 'object',
+          fields: [
+            { name: 'desktop', type: 'image' },
+            { name: 'tablet', type: 'image' },
+            { name: 'mobile', type: 'image' },
+          ],
+        },
+        {
+          name: 'second',
+          type: 'object',
+          fields: [
+            { name: 'desktop', type: 'image' },
+            { name: 'tablet', type: 'image' },
+            { name: 'mobile', type: 'image' },
+          ],
+        },
+        {
+          name: 'third',
+          type: 'object',
+          fields: [
+            { name: 'desktop', type: 'image' },
+            { name: 'tablet', type: 'image' },
+            { name: 'mobile', type: 'image' },
+          ],
+        },
       ],
     },
     {
-      name: 'new',
-      title: 'New',
+      name: 'isNewProduct',
+      title: 'IsNewProduct',
       type: 'boolean',
+      initialValue: false,
     },
     {
       name: 'price',
@@ -67,6 +92,11 @@ export default {
     {
       name: 'description',
       title: 'Description',
+      type: 'string',
+    },
+    {
+      name: 'features',
+      title: 'Features',
       type: 'string',
     },
     {

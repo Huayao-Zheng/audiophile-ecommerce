@@ -27,4 +27,14 @@
   .menuOverRide .MuiPaper-root {
     @apply !top-0 !left-0 !right-0 !min-w-full !rounded-none !rounded-b-lg !py-8 md:!pb-14;
   }
+
+  /* New Product - overline */
+  .product-overline {
+    @apply text-overline font-normal text-[#D87D4A];
+  }
+
+  /* see-product button style */
+  .see-product {
+    @apply h-12 w-40 bg-[#D87D4A] text-subTitle font-bold leading-[18px] text-white hover:bg-[#FBAF85];
+  }
 }

@@ -15,9 +15,7 @@ const Hero = () => {
           enthusiast.
         </p>
 
-        <button className="h-12 w-40 bg-[#D87D4A] text-subTitle font-bold leading-[18px] hover:bg-[#FBAF85]">
-          SEE PRODUCT
-        </button>
+        <button className="see-product">SEE PRODUCT</button>
       </div>
 
       {/* IMG*/}
