@@ -14,7 +14,7 @@ const Images = [
 
 const Category = ({ handleClose }) => {
   return (
-    <div className="Container grid gap-y-4 md:grid-cols-3 md:gap-x-2 lg:gap-x-[30px]">
+    <div className="Container grid w-full gap-y-4 md:grid-cols-3 md:gap-x-2 lg:gap-x-[30px]">
       {Images.map((img, idx) => (
         <Link key={idx} href={`/${img.category}`}>
           <div

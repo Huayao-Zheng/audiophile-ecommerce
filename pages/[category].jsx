@@ -3,25 +3,20 @@ import { client } from '../lib/client';
 import { BestGear, Category, Product } from '../components';
 
 const CategoryPage = ({ category, products }) => {
-  console.log(category, products);
-
   return (
     <div>
       <div className="grid h-28 place-items-center bg-black md:h-60">
         <h1 className="text-h4 font-bold uppercase text-white md:text-h2">{category}</h1>
       </div>
 
-      <div className="grid gap-32 lg:gap-40">
-        {products.map((product) => (
-          <Product key={product._id} product={product} />
-        ))}
-      </div>
+      <div className="grid gap-[120px] pt-16 pb-[120px] md:pt-[120px] lg:gap-40 lg:py-40">
+        <div className="even-row-reverse space-y-[120px] lg:space-y-40">
+          {products.map((product) => (
+            <Product key={product._id} product={product} />
+          ))}
+        </div>
 
-      <div className="mt-10 mb-28 md:my-24 lg:mt-28 lg:mb-40">
         <Category />
-      </div>
-
-      <div className="my-28 md:my-24 lg:mt-48 lg:mb-52">
         <BestGear />
       </div>
     </div>

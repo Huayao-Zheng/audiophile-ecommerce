@@ -38,3 +38,7 @@
     @apply h-12 w-40 bg-[#D87D4A] text-subTitle font-bold leading-[18px] text-white hover:bg-[#FBAF85];
   }
 }
+
+.even-row-reverse > div:nth-child(even) {
+  flex-direction: row-reverse;
+}
