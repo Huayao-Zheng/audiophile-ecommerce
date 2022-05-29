@@ -39,6 +39,8 @@
   }
 }
 
-.even-row-reverse > div:nth-child(even) {
-  flex-direction: row-reverse;
+@media screen and (min-width: 1024px) {
+  .even-row-reverse > :nth-child(even) {
+    flex-direction: row-reverse;
+  }
 }
