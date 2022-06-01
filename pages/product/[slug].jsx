@@ -10,7 +10,7 @@ const escapedNewLineToLineBreakTag = (string) => {
 };
 
 const ProductDetails = ({ product }) => {
-  const { name, image, slug, description, isNewProduct, category, price } = product;
+  const { name, image, description, isNewProduct, category, price } = product;
   const router = useRouter();
 
   return (
