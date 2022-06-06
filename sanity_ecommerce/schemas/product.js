@@ -14,6 +14,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'shortName',
+      title: 'ShortName',
+      type: 'string',
+    },
+    {
       name: 'category',
       title: 'Category',
       type: 'string',
