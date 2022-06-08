@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <CartContext>
       <Layout>
-        <Toaster position="bottom-center" reverseOrder={false} />
+        <Toaster />
         <Component {...pageProps} />
       </Layout>
     </CartContext>
