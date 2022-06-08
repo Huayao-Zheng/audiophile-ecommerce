@@ -3,6 +3,7 @@ import React from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 import { useCartContext } from '../context/CartContext';
+import { urlFor } from '../lib/client';
 
 const Cart = () => {
   const {
@@ -13,26 +14,31 @@ const Cart = () => {
     toggleCartItemQuantity,
     onRemove,
     setCartItems,
+    removeAllCartItems,
   } = useCartContext();
 
   console.log(cartItems);
 
   return (
     <>
-      {/* backdrop */}
+      {/* Backdrop */}
       <div className="fixed z-10 h-full w-full bg-black/40" onClick={() => setShowCart(false)} />
 
-      <div className="fixed right-0 z-20 h-96 w-80 rounded-lg bg-white text-black">
-        <div>
+      {/* Cart */}
+      <div className="fixed right-0 z-20 h-96 w-80 rounded-lg bg-white px-7 py-8 text-black">
+        <div className="flex justify-between">
           <span>Cart ({cartItems.length})</span>
-          <button onClick={() => setCartItems([])}>Remove All</button>
+          <button onClick={removeAllCartItems} className="underline hover:text-[#D87D4A]">
+            Remove All
+          </button>
         </div>
 
+        {/* CartItems */}
         {cartItems.map((item) => (
           <div key={item._id}>
-            <div className="h-1/6 w-16 rounded-lg bg-[#F1F1F1]">
+            <div className="h-16 w-16 rounded-lg bg-[#F1F1F1]">
               <img
-                src={urlFor(item.desktop)}
+                src={urlFor(item.image.desktop)}
                 alt={item.category}
                 className="mx-auto h-full select-none rounded-lg object-cover"
               />
@@ -53,6 +59,15 @@ const Cart = () => {
             </div>
           </div>
         ))}
+
+        {/* Total */}
+        <div className="flex justify-between">
+          <span>Total</span>
+          <span>$ 5,396</span>
+        </div>
+
+        {/* Checkout */}
+        <button className="see-product w-full">checkout</button>
       </div>
     </>
   );

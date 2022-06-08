@@ -35,7 +35,7 @@
 
   /* see-product button style */
   .see-product {
-    @apply h-12 w-40 bg-[#D87D4A] text-subTitle font-bold leading-[18px] text-white hover:bg-[#FBAF85];
+    @apply h-12 w-40 bg-[#D87D4A] text-subTitle font-bold uppercase leading-[18px] text-white hover:bg-[#FBAF85];
   }
 }
 

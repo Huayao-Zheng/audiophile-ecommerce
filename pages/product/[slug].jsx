@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { client, urlFor } from '../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import { useCartContext } from '../../context/CartContext';
 
 const escapedNewLineToLineBreakTag = (string) => {
   return string.split('\\n').map((item, index) => {
@@ -10,8 +11,10 @@ const escapedNewLineToLineBreakTag = (string) => {
 };
 
 const ProductDetails = ({ product }) => {
-  const { name, image, description, isNewProduct, category, price } = product;
   const router = useRouter();
+  const { name, image, description, isNewProduct, category, price } = product;
+  const { onAdd } = useCartContext();
+  const [qty, setQty] = useState(1);
 
   return (
     <div className="Container text-body font-medium text-black/50">
@@ -48,17 +51,30 @@ const ProductDetails = ({ product }) => {
           {/* Qty */}
           <div className="flex items-center gap-4">
             <div className="flex min-w-[120px] items-center justify-between bg-[#F1F1F1]">
-              <button className="h-12 w-12 text-lg text-black/25 hover:text-[#D87D4A]">
+              <button
+                onClick={() => (qty > 1 ? setQty(qty - 1) : null)}
+                className={`h-12 w-12 text-lg text-black/25 hover:text-[#D87D4A] ${
+                  qty === 1 && 'cursor-not-allowed hover:text-black/25'
+                }`}
+                disabled={qty === 1}
+              >
                 <AiOutlineMinus className="mx-auto" />
               </button>
-              <span className="text-subTitle font-bold text-black">1</span>
-              <button className="h-12 w-12 text-lg text-black/25 hover:text-[#D87D4A]">
+
+              <span className="text-subTitle font-bold text-black">{qty}</span>
+
+              <button
+                onClick={() => setQty(qty + 1)}
+                className="h-12 w-12 text-lg text-black/25 hover:text-[#D87D4A]"
+              >
                 <AiOutlinePlus className="mx-auto" />
               </button>
             </div>
 
             {/* add to card */}
-            <button className="see-product">ADD TO CART</button>
+            <button onClick={() => onAdd(product, qty)} className="see-product">
+              ADD TO CART
+            </button>
           </div>
         </div>
       </div>
