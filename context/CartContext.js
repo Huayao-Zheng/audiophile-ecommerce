@@ -69,6 +69,7 @@ export const CartContext = ({ children }) => {
 
   const removeAllCartItems = () => {
     setCartItems([]);
+    setTotalQuantities(0);
 
     toast.success(`Removed all items`);
   };

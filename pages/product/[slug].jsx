@@ -4,21 +4,32 @@ import { client, urlFor } from '../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useCartContext } from '../../context/CartContext';
 
-const escapedNewLineToLineBreakTag = (string) => {
-  return string.split('\\n').map((item, index) => {
-    return index === 0 ? item : [<br key={index} />, item];
-  });
+const escapedNewLineToLineBreakTag = (string, option) => {
+  if (option === 'title') {
+    return string.split('\n').map((item, index) => {
+      return index === 0 ? item : [<br key={index} />, item];
+    });
+  }
+
+  if (option === 'body') {
+    return string.split('\\n').map((item, index) => {
+      return index === 0 ? item : [<br key={index} />, item];
+    });
+  }
 };
 
 const ProductDetails = ({ product }) => {
   const router = useRouter();
-  const { name, image, description, isNewProduct, category, price } = product;
+  const { name, image, description, isNewProduct, category, price, features, includes } = product;
   const { onAdd } = useCartContext();
   const [qty, setQty] = useState(1);
 
   return (
     <div className="Container text-body font-medium text-black/50">
-      <button onClick={() => router.back()} className="mb-6 font-medium hover:text-black lg:mb-14">
+      <button
+        onClick={() => router.back()}
+        className="mb-6 mt-4 font-medium hover:text-black md:mt-8 lg:mb-14 lg:mt-20"
+      >
         Go Back
       </button>
 
@@ -37,7 +48,7 @@ const ProductDetails = ({ product }) => {
 
           {/* name */}
           <h2 className="my-6 text-h4 font-bold uppercase text-black md:mt-4 md:mb-8 md:text-h2">
-            {escapedNewLineToLineBreakTag(name)}
+            {escapedNewLineToLineBreakTag(name, 'title')}
           </h2>
 
           {/* description */}
@@ -79,8 +90,26 @@ const ProductDetails = ({ product }) => {
         </div>
       </div>
 
-      {/* Features */}
-      {/* In the box */}
+      {/* Features & In the box */}
+      <div className="my-20 flex flex-col gap-20 md:my-32 lg:my-40 lg:flex-row xl:gap-32">
+        {/* Features */}
+        <article className="space-y-6 lg:max-w-[635px]">
+          <h2 className="text-2xl font-bold uppercase tracking-[0.86px] text-black md:text-h3">FEATURES</h2>
+          <p className="text-body text-black/50">{escapedNewLineToLineBreakTag(features, 'body')}</p>
+        </article>
+        {/* In the Box */}
+        <article className="flex flex-col gap-6 md:flex-row md:gap-44 lg:flex-col lg:gap-6">
+          <h2 className="text-2xl font-bold uppercase tracking-[0.86px] text-black md:text-h3">in the box</h2>
+          <div>
+            {includes.map((accessory, idx) => (
+              <div className="flex" key={idx}>
+                <span className="w-10 font-bold text-[#D87D4A]">{accessory.quantity}x</span>
+                <span className="text-body font-medium">{accessory.item}</span>
+              </div>
+            ))}
+          </div>
+        </article>
+      </div>
       {/* You may also like */}
     </div>
   );
