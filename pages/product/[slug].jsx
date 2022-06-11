@@ -20,7 +20,7 @@ const escapedNewLineToLineBreakTag = (string, option) => {
 
 const ProductDetails = ({ product }) => {
   const router = useRouter();
-  const { name, image, description, isNewProduct, category, price, features, includes } = product;
+  const { name, image, description, isNewProduct, category, price, features, includes, gallery } = product;
   const { onAdd } = useCartContext();
   const [qty, setQty] = useState(1);
 
@@ -34,13 +34,9 @@ const ProductDetails = ({ product }) => {
       </button>
 
       {/* product */}
-      <div className="md:flex md:items-center md:justify-between md:gap-16">
+      <div className="md:flex md:items-center md:justify-between md:gap-16 lg:gap-[124px]">
         <div className="h-[327px] rounded-lg bg-[#F1F1F1] md:h-[480px] lg:h-[560px] lg:max-w-[540px]">
-          <img
-            src={urlFor(image.desktop)}
-            alt={category}
-            className="mx-auto h-full select-none rounded-lg object-cover"
-          />
+          <img src={urlFor(image.desktop)} alt={category} className="mx-auto h-full select-none" />
         </div>
 
         <div>
@@ -110,6 +106,35 @@ const ProductDetails = ({ product }) => {
           </div>
         </article>
       </div>
+
+      {/* Gallery */}
+      <div>
+        {/* Mobile */}
+        <div className="space-y-5 md:hidden">
+          <img src={urlFor(gallery.first.mobile)} />
+          <img src={urlFor(gallery.second.mobile)} />
+          <img src={urlFor(gallery.third.mobile)} />
+        </div>
+
+        {/* Tablet */}
+        <div className="hidden md:flex md:justify-between lg:hidden">
+          <div className="flex w-[40%] flex-col justify-between">
+            <img src={urlFor(gallery.first.tablet)} />
+            <img src={urlFor(gallery.second.tablet)} />
+          </div>
+          <img src={urlFor(gallery.third.tablet)} className="w-[57.2%]" />
+        </div>
+
+        {/* Desktop */}
+        <div className="hidden lg:flex lg:justify-between">
+          <div className="flex w-[40%] flex-col justify-between">
+            <img src={urlFor(gallery.first.desktop)} />
+            <img src={urlFor(gallery.second.desktop)} />
+          </div>
+          <img src={urlFor(gallery.third.desktop)} className="w-[57.2%]" />
+        </div>
+      </div>
+
       {/* You may also like */}
     </div>
   );

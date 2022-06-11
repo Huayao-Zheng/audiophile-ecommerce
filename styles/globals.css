@@ -8,6 +8,10 @@
   body {
     @apply bg-[#FAFAFA] font-manrope;
   }
+
+  img {
+    @apply rounded-lg object-cover;
+  }
 }
 
 @layer components {
