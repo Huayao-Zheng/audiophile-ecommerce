@@ -6,9 +6,11 @@ md:bg-[url(../assets/shared/tablet/image-best-gear.jpg)]              md:w-[689p
 lg:bg-[url(../assets/shared/desktop/image-best-gear.jpg)] lg:h-[588px] lg:w-[540px] 
 `;
 
-const BestGear = () => {
+const BestGear = ({ className }) => {
   return (
-    <div className="Container flex w-full flex-col items-center gap-y-10 md:gap-y-16 lg:flex-row-reverse lg:justify-between lg:gap-x-6">
+    <div
+      className={`Container flex w-full flex-col items-center gap-y-10 md:gap-y-16 lg:flex-row-reverse lg:justify-between lg:gap-x-6 ${className}`}
+    >
       <div className={`rounded-lg bg-cover bg-center bg-no-repeat ${imgPath}`}></div>
 
       <div className="max-w-xl text-center lg:max-w-md lg:text-left">

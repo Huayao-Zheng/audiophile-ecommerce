@@ -12,9 +12,9 @@ const Images = [
   { category: 'earphones', path: EarphoneImg },
 ];
 
-const Category = ({ handleClose }) => {
+const Category = ({ handleClose, className }) => {
   return (
-    <div className="Container grid w-full gap-y-4 md:grid-cols-3 md:gap-x-2 lg:gap-x-[30px]">
+    <div className={`Container grid w-full gap-y-4 md:grid-cols-3 md:gap-x-2 lg:gap-x-[30px] ${className}`}>
       {Images.map((img, idx) => (
         <Link key={idx} href={`/${img.category}`}>
           <div

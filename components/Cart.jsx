@@ -13,12 +13,12 @@ const Cart = () => {
     <>
       {/* Backdrop */}
       <div
-        className="fixed top-[89.98px] left-0 z-10 h-full w-full bg-black/40"
+        className="fixed top-[89.98px] left-0 z-40 h-full w-full bg-black/40"
         onClick={() => setShowCart(false)}
       />
 
       {/* Cart */}
-      <div className="absolute right-0 top-20 z-20 w-80 min-w-[327px] rounded-lg bg-white px-7 py-8 md:min-w-[377px]">
+      <div className="absolute right-0 top-20 z-50 w-80 min-w-[327px] rounded-lg bg-white px-7 py-8 md:min-w-[377px]">
         {/* Cart header */}
         <div className="mb-8 flex justify-between">
           <span className="text-h5 font-bold uppercase text-black">Cart ({totalQuantities})</span>

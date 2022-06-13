@@ -1,28 +1,23 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { client, urlFor } from '../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useCartContext } from '../../context/CartContext';
+import { BestGear, Category } from '../../components';
 
 const escapedNewLineToLineBreakTag = (string, option) => {
-  if (option === 'title') {
-    return string.split('\n').map((item, index) => {
-      return index === 0 ? item : [<br key={index} />, item];
-    });
-  }
-
-  if (option === 'body') {
-    return string.split('\\n').map((item, index) => {
-      return index === 0 ? item : [<br key={index} />, item];
-    });
-  }
+  return string.split('\\n').map((item, index) => {
+    return index === 0 ? item : [<br key={index} />, item];
+  });
 };
 
 const ProductDetails = ({ product }) => {
-  const router = useRouter();
-  const { name, image, description, isNewProduct, category, price, features, includes, gallery } = product;
+  const { name, image, description, isNewProduct, category, price, features, includes, gallery, others } =
+    product;
   const { onAdd } = useCartContext();
   const [qty, setQty] = useState(1);
+  const router = useRouter();
 
   return (
     <div className="Container text-body font-medium text-black/50">
@@ -44,14 +39,14 @@ const ProductDetails = ({ product }) => {
 
           {/* name */}
           <h2 className="my-6 text-h4 font-bold uppercase text-black md:mt-4 md:mb-8 md:text-h2">
-            {escapedNewLineToLineBreakTag(name, 'title')}
+            {escapedNewLineToLineBreakTag(name)}
           </h2>
 
           {/* description */}
           <p className="max-w-xl lg:max-w-md">{description}</p>
 
           {/* price */}
-          <span className="mt-6 mb-8 block text-h5 font-bold text-black md:my-8 lg:mb-12">
+          <span className="mt-6 mb-8 block text-h6 font-bold text-black md:my-8 lg:mb-12">
             $ {price > 999 ? `${price.toString().slice(0, -3)},${price.toString().slice(-3)}` : price}
           </span>
 
@@ -91,7 +86,7 @@ const ProductDetails = ({ product }) => {
         {/* Features */}
         <article className="space-y-6 lg:max-w-[635px]">
           <h2 className="text-2xl font-bold uppercase tracking-[0.86px] text-black md:text-h3">FEATURES</h2>
-          <p className="text-body text-black/50">{escapedNewLineToLineBreakTag(features, 'body')}</p>
+          <p className="text-body text-black/50">{escapedNewLineToLineBreakTag(features)}</p>
         </article>
         {/* In the Box */}
         <article className="flex flex-col gap-6 md:flex-row md:gap-44 lg:flex-col lg:gap-6">
@@ -115,7 +110,6 @@ const ProductDetails = ({ product }) => {
           <img src={urlFor(gallery.second.mobile)} />
           <img src={urlFor(gallery.third.mobile)} />
         </div>
-
         {/* Tablet */}
         <div className="hidden md:flex md:justify-between lg:hidden">
           <div className="flex w-[40%] flex-col justify-between">
@@ -124,7 +118,6 @@ const ProductDetails = ({ product }) => {
           </div>
           <img src={urlFor(gallery.third.tablet)} className="w-[57.2%]" />
         </div>
-
         {/* Desktop */}
         <div className="hidden lg:flex lg:justify-between">
           <div className="flex w-[40%] flex-col justify-between">
@@ -136,6 +129,35 @@ const ProductDetails = ({ product }) => {
       </div>
 
       {/* You may also like */}
+      <div className="mt-[120px]">
+        <h2 className="mb-14 text-center text-2xl font-bold uppercase tracking-[0.86px] text-black md:text-h3">
+          you may also like
+        </h2>
+
+        <div className="flex flex-col gap-y-14 md:flex-row md:gap-x-3 lg:justify-center lg:gap-x-8">
+          {others.map((other) => (
+            <div className="w-full space-y-8 text-center" key={other._key}>
+              <div className="h-[120px] rounded-lg bg-[#F1F1F1] md:h-[318px]">
+                <img
+                  src={urlFor(other.image.desktop)}
+                  alt={category}
+                  className="mx-auto h-full select-none"
+                />
+              </div>
+
+              <h3 className="text-h5 font-bold uppercase text-black">{other.name}</h3>
+
+              <Link href={`${other.slug.current}`}>
+                <button className="see-product">SEE PRODUCT</button>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Category className="mt-[120px] px-0 lg:mt-40" />
+
+      <BestGear className="my-[120px] px-0 lg:my-40" />
     </div>
   );
 };
