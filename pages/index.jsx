@@ -1,11 +1,17 @@
 import React from 'react';
+import Head from 'next/head';
 import { client } from '../lib/client';
 import { Hero, BestGear, Category, ProductsGrid } from '../components';
 
 const Home = ({ products }) => {
   return (
     <div>
+      <Head>
+        <title>audiophile - home</title>
+      </Head>
+
       <Hero />
+
       <div className="mt-10 mb-28 md:my-24 lg:mt-28 lg:mb-40">
         <Category />
       </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { client, urlFor } from '../../lib/client';
@@ -21,6 +22,10 @@ const ProductDetails = ({ product }) => {
 
   return (
     <div className="Container text-body font-medium text-black/50">
+      <Head>
+        <title>audiophile - {product.shortName}</title>
+      </Head>
+
       <button
         onClick={() => router.back()}
         className="mb-6 mt-4 font-medium hover:text-black md:mt-8 lg:mb-14 lg:mt-20"

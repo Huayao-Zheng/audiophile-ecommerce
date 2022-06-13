@@ -1,10 +1,15 @@
 import React from 'react';
+import Head from 'next/head';
 import { client } from '../lib/client';
 import { BestGear, Category, Product } from '../components';
 
 const CategoryPage = ({ category, products }) => {
   return (
     <div>
+      <Head>
+        <title>audiophile - {category}</title>
+      </Head>
+
       <div className="grid h-28 place-items-center bg-black md:h-60">
         <h1 className="text-h4 font-bold uppercase text-white md:text-h2">{category}</h1>
       </div>
