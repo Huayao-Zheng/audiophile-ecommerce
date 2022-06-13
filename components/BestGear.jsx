@@ -18,14 +18,14 @@ const BestGear = ({ className }) => {
           <Image
             src={require('../assets/shared/tablet/image-best-gear.jpg')}
             layout="fill"
-            className="hidden object-cover md:block lg:hidden"
+            className="object-cover"
           />
         </div>
         <div className="absolute -z-10 hidden h-full w-full lg:block">
           <Image
             src={require('../assets/shared/desktop/image-best-gear.jpg')}
             layout="fill"
-            className="hidden object-cover lg:block"
+            className="object-cover"
           />
         </div>
       </div>

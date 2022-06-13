@@ -1,8 +1,33 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Hero = () => {
   return (
     <div className="relative h-[510px] overflow-hidden bg-[#0E0E0E] md:h-[639px]">
+      {/* Hero IMG*/}
+      <div className="absolute bottom-0 h-[600px] w-full md:hidden">
+        <Image
+          src={require('../assets/home/mobile/image-header.jpg')}
+          layout="fill"
+          className="object-cover"
+        />
+      </div>
+      <div className="absolute bottom-0 hidden h-[729px] w-full md:block lg:hidden">
+        <Image
+          src={require('../assets/home/tablet/image-header.jpg')}
+          layout="fill"
+          className="object-cover"
+        />
+      </div>
+      <div className="absolute bottom-0 left-1/2 hidden  h-[729px] w-full max-w-[1440px] -translate-x-1/2 lg:block">
+        <Image
+          src={require('../assets/home/desktop/image-hero.jpg')}
+          layout="fill"
+          className="object-cover"
+        />
+      </div>
+
+      {/* Hero info */}
       <div className="Container relative z-10 flex flex-col items-center pt-[108px] text-center text-white lg:items-start lg:text-left">
         <span className="text-overline uppercase text-white/50">NEW PRODUCT</span>
 
@@ -17,11 +42,6 @@ const Hero = () => {
 
         <button className="see-product">SEE PRODUCT</button>
       </div>
-
-      {/* IMG*/}
-      <div
-        className={`md: absolute left-1/2 top-[-70px] h-[722px] w-full max-w-[1440px] -translate-x-1/2 bg-[url(../assets/home/Heroimg.png)] bg-cover bg-center bg-no-repeat opacity-50 md:top-[-132px] md:h-[960px] lg:top-[-90px] lg:h-[729px] lg:bg-[url(../assets/home/desktop/image-hero.jpg)]`}
-      ></div>
     </div>
   );
 };

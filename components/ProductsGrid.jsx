@@ -34,7 +34,6 @@ const ProductsGrid = () => {
       </div>
 
       {/* item2 */}
-
       <div className="relative flex h-[320px] flex-col justify-center md:col-span-2">
         <div className="absolute -z-10 h-full w-full md:hidden">
           <Image
@@ -49,7 +48,7 @@ const ProductsGrid = () => {
             src={require('../assets/home/tablet/image-speaker-zx7.jpg')}
             alt="speaker"
             layout="fill"
-            className="hidden object-cover md:block lg:hidden"
+            className="object-cover"
           />
         </div>
         <div className="absolute -z-10 hidden h-full w-full lg:block">
@@ -57,7 +56,7 @@ const ProductsGrid = () => {
             src={require('../assets/home/desktop/image-speaker-zx7.jpg')}
             alt="speaker"
             layout="fill"
-            className="hidden object-cover lg:block"
+            className="object-cover"
           />
         </div>
 
@@ -86,7 +85,7 @@ const ProductsGrid = () => {
             src={require('../assets/home/tablet/image-earphones-yx1.jpg')}
             alt="speaker"
             layout="fill"
-            className="hidden object-cover md:block lg:hidden"
+            className="object-cover"
           />
         </div>
         <div className="absolute -z-10 hidden h-full w-full lg:block">
@@ -94,7 +93,7 @@ const ProductsGrid = () => {
             src={require('../assets/home/desktop/image-earphones-yx1.jpg')}
             alt="speaker"
             layout="fill"
-            className="hidden object-cover lg:block"
+            className="object-cover"
           />
         </div>
       </div>
