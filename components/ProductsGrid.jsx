@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ProductsGrid = () => {
   return (
@@ -23,27 +24,89 @@ const ProductsGrid = () => {
           <p className="mx-auto my-6 max-w-[349px] text-body font-medium opacity-75 md:mb-10">
             Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
           </p>
-          <button className="h-12 w-40 bg-black text-subTitle font-bold leading-[18px] hover:bg-[#4C4C4C]">
-            SEE PRODUCT
-          </button>
+
+          <Link href={`product/zx9-speaker`}>
+            <button className="h-12 w-40 bg-black text-subTitle font-bold leading-[18px] hover:bg-[#4C4C4C]">
+              SEE PRODUCT
+            </button>
+          </Link>
         </div>
       </div>
 
       {/* item2 */}
-      <div className="flex h-[320px] flex-col justify-center gap-8 rounded-lg bg-[url(../assets/home/mobile/image-speaker-zx7.jpg)] bg-cover bg-center bg-no-repeat pl-6 text-black md:col-span-2 md:bg-[url(../assets/home/tablet/image-speaker-zx7.jpg)] md:pl-[62px] lg:bg-[url(../assets/home/desktop/image-speaker-zx7.jpg)] lg:pl-24 ">
-        <h1 className="text-h4 font-bold">ZX7 SPEAKER</h1>
-        <button className="h-12 w-40 border border-black text-subTitle font-bold leading-[18px] hover:bg-black hover:text-white">
-          SEE PRODUCT
-        </button>
+
+      <div className="relative flex h-[320px] flex-col justify-center md:col-span-2">
+        <div className="absolute -z-10 h-full w-full md:hidden">
+          <Image
+            src={require('../assets/home/mobile/image-speaker-zx7.jpg')}
+            alt="speaker"
+            layout="fill"
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute -z-10 hidden h-full w-full md:block lg:hidden">
+          <Image
+            src={require('../assets/home/tablet/image-speaker-zx7.jpg')}
+            alt="speaker"
+            layout="fill"
+            className="hidden object-cover md:block lg:hidden"
+          />
+        </div>
+        <div className="absolute -z-10 hidden h-full w-full lg:block">
+          <Image
+            src={require('../assets/home/desktop/image-speaker-zx7.jpg')}
+            alt="speaker"
+            layout="fill"
+            className="hidden object-cover lg:block"
+          />
+        </div>
+
+        <div className="space-y-8 pl-6 md:pl-16 lg:pl-24">
+          <h1 className="text-h4 font-bold">ZX7 SPEAKER</h1>
+          <Link href={`product/zx7-speaker`}>
+            <button className="h-12 w-40 border border-black text-subTitle font-bold leading-[18px] hover:bg-black hover:text-white">
+              SEE PRODUCT
+            </button>
+          </Link>
+        </div>
       </div>
 
       {/* item3 */}
-      <div className="h-[200px] rounded-lg bg-[url(../assets/home/mobile/image-earphones-yx1.jpg)] bg-cover bg-no-repeat md:h-[320px] md:bg-[url(../assets/home/tablet/image-earphones-yx1.jpg)] lg:bg-[url(../assets/home/desktop/image-earphones-yx1.jpg)]" />
+      <div className="relative h-[200px] md:h-[320px]">
+        <div className="absolute -z-10 h-full w-full md:hidden">
+          <Image
+            src={require('../assets/home/mobile/image-earphones-yx1.jpg')}
+            alt="speaker"
+            layout="fill"
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute -z-10 hidden h-full w-full md:block lg:hidden">
+          <Image
+            src={require('../assets/home/tablet/image-earphones-yx1.jpg')}
+            alt="speaker"
+            layout="fill"
+            className="hidden object-cover md:block lg:hidden"
+          />
+        </div>
+        <div className="absolute -z-10 hidden h-full w-full lg:block">
+          <Image
+            src={require('../assets/home/desktop/image-earphones-yx1.jpg')}
+            alt="speaker"
+            layout="fill"
+            className="hidden object-cover lg:block"
+          />
+        </div>
+      </div>
+
       <div className="flex h-[200px] flex-col justify-center gap-8 rounded-lg bg-[#F1F1F1] pl-6 text-black md:h-[320px] md:pl-10">
         <h1 className="text-h4 font-bold">YX1 EARPHONES</h1>
-        <button className="h-12 w-40 border border-black text-subTitle font-bold leading-[18px] hover:bg-black hover:text-white">
-          SEE PRODUCT
-        </button>
+
+        <Link href={`product/yx1-earphones`}>
+          <button className="h-12 w-40 border border-black text-subTitle font-bold leading-[18px] hover:bg-black hover:text-white">
+            SEE PRODUCT
+          </button>
+        </Link>
       </div>
     </div>
   );
