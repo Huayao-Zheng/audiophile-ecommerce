@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Hero = () => {
@@ -41,7 +42,9 @@ const Hero = () => {
             enthusiast.
           </p>
 
-          <button className="see-product">SEE PRODUCT</button>
+          <Link href="product/xx99-mark-two-headphones">
+            <button className="see-product">SEE PRODUCT</button>
+          </Link>
         </div>
       </div>
     </>
