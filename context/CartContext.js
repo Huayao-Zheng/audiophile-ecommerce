@@ -68,6 +68,11 @@ export const CartContext = ({ children }) => {
   };
 
   const removeAllCartItems = () => {
+    if (cartItems.length === 0) {
+      toast.success('Your cart is already empty!');
+      return;
+    }
+
     setCartItems([]);
     setTotalQuantities(0);
     setTotalPrice(0);

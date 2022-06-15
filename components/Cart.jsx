@@ -1,13 +1,40 @@
 import React from 'react';
 
+import toast from 'react-hot-toast';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 import { useCartContext } from '../context/CartContext';
 import { urlFor } from '../lib/client';
+import getStripe from '../lib/getStripe';
 
 const Cart = () => {
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, removeAllCartItems } =
     useCartContext();
+
+  const handleCheckout = async () => {
+    if (cartItems.length === 0) {
+      toast.error('Your cart is empty');
+      return;
+    }
+
+    const stripe = await getStripe();
+
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+
+    toast.loading('Redirecting...');
+
+    stripe.redirectToCheckout({ sessionId: data.id });
+  };
 
   return (
     <>
@@ -92,7 +119,9 @@ const Cart = () => {
         </div>
 
         {/* Checkout */}
-        <button className="see-product w-full">checkout</button>
+        <button onClick={handleCheckout} className="see-product w-full">
+          checkout
+        </button>
       </div>
     </>
   );
