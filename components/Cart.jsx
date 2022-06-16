@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 import { useCartContext } from '../context/CartContext';
+import { moneyFormat } from '../util/helper';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
 
@@ -75,10 +76,7 @@ const Cart = () => {
                 <div>
                   <div className="text-body font-bold uppercase text-black">{item.shortName}</div>
                   <div className="text-sm font-bold uppercase leading-6 text-black/50">
-                    ${' '}
-                    {item.price > 999
-                      ? `${item.price.toString().slice(0, -3)},${item.price.toString().slice(-3)}`
-                      : item.price}
+                    {moneyFormat(item.price)}
                   </div>
                 </div>
               </div>
@@ -110,12 +108,7 @@ const Cart = () => {
         <div className="mb-6 flex justify-between">
           <span className="text-body font-medium uppercase text-black/50">Total</span>
 
-          <span className="text-lg font-bold uppercase leading-6 text-black">
-            ${' '}
-            {totalPrice > 999
-              ? `${totalPrice.toString().slice(0, -3)},${totalPrice.toString().slice(-3)}`
-              : totalPrice}
-          </span>
+          <span className="text-lg font-bold uppercase leading-6 text-black">{moneyFormat(totalPrice)}</span>
         </div>
 
         {/* Checkout */}

@@ -1,12 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { urlFor } from '../lib/client';
-
-const escapedNewLineToLineBreakTag = (string) => {
-  return string.split('\\n').map((item, index) => {
-    return index === 0 ? item : [<br key={index} />, item];
-  });
-};
+import { escapedNewLineToLineBreakTag } from '../util/helper';
 
 const Product = ({ product }) => {
   const { name, slug, description, isNewProduct, categoryImage, category } = product;

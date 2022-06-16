@@ -6,12 +6,7 @@ import { client, urlFor } from '../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useCartContext } from '../../context/CartContext';
 import { BestGear, Category } from '../../components';
-
-const escapedNewLineToLineBreakTag = (string, option) => {
-  return string.split('\\n').map((item, index) => {
-    return index === 0 ? item : [<br key={index} />, item];
-  });
-};
+import { escapedNewLineToLineBreakTag } from '../../util/helper';
 
 const ProductDetails = ({ product }) => {
   const { name, image, description, isNewProduct, category, price, features, includes, gallery, others } =
