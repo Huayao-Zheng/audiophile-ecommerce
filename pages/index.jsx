@@ -3,14 +3,14 @@ import Head from 'next/head';
 import { client } from '../lib/client';
 import { Hero, BestGear, Category, ProductsGrid } from '../components';
 
-const Home = ({ products }) => {
+const Home = ({ products, bannerData }) => {
   return (
     <div>
       <Head>
         <title>audiophile - home</title>
       </Head>
 
-      <Hero />
+      <Hero bannerData={bannerData} />
 
       <div className="mt-10 mb-28 md:my-24 lg:mt-28 lg:mb-40">
         <Category />
