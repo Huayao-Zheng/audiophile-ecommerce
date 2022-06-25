@@ -12,7 +12,7 @@ const Success = () => {
   const { totalPrice, setCartItems, setTotalPrice, setTotalQuantities } = useCartContext();
 
   useEffect(() => {
-    localStorage.clear();
+    // localStorage.clear();
     setCartItems([]);
     setTotalPrice(0);
     setTotalQuantities(0);
