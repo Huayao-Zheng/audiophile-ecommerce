@@ -4,10 +4,6 @@ import { BsCheckLg } from 'react-icons/bs';
 import { useCartContext } from '../context/CartContext';
 import { runFireworks } from '../lib/utils';
 
-// const moneyFormat = (num) => {
-//   return '$ ' + num > 999 ? `${num.toString().slice(0, -3)},${num.toString().slice(-3)}` : num;
-// };
-
 const Success = () => {
   const { totalPrice, setCartItems, setTotalPrice, setTotalQuantities } = useCartContext();
 
