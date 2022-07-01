@@ -28,15 +28,6 @@ const Success = () => {
 
         <p className="text-body font-medium text-black/50">You will receive an email confirmation shortly.</p>
 
-        {/* <div className="rounded-lg">
-          <div className=""></div>
-
-          <div className="bg-black">
-            <span>GRAND TOTAL</span>
-            <span className="text-white">{moneyFormat(totalPrice)}</span>
-          </div>
-        </div> */}
-
         <Link href="/">
           <button type="button" className="see-product mt-6 w-full md:mt-11">
             BACK TO HOME
